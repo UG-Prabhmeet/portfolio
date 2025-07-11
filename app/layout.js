@@ -1,14 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Prata } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const inter = Inter({
+    variable: "--font-sans",
     subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+    variable: "--font-mono",
     subsets: ["latin"],
+    weight: ["400"],
+});
+
+const prataFont = Prata({
+    variable: "--font-prata",
+    subsets: ["latin"],
+    weight: "400",
+    display: "swap",
 });
 
 export const metadata = {
@@ -20,7 +28,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${plexMono.variable} ${prataFont.variable} ${inter.variable} antialiased`}
             >
                 {children}
                 <Analytics />
